@@ -30,7 +30,7 @@ public:
     		if(count == 1)
     			return true;
 			while(head->next){
-				if(!(head == slow && count % 2 == 1))
+				if(!(head == slow && count % 2 == 1))//走到忽略奇数中间点
 					result = result xor head->val;
 				head = head->next;
 			}

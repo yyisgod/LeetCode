@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+/*genius*/
 class Solution {
 public:
 
@@ -21,7 +21,7 @@ int countDigitOne(int n) {
 };
 
 int main() {
-	int n = 13;
+	int n = 20;
 	Solution s;
 	cout << s.countDigitOne(n);
 
