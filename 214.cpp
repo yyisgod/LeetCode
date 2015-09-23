@@ -14,27 +14,25 @@ public:
         int pi[n];
         fill_n(pi, n, 0);
         pi[0] = -1;
-        for (int i=0; i<n-1; i++) {
-            int k = pi[i];
-            while (k != -1 && s[k+1] != s[i+1]) k = pi[k];
-            if (s[k+1] == s[i+1]) {
-                pi[i+1] = k+1;
-            } else {
-                pi[i+1] = -1;
+        int k = -1;
+        for (int i=1; i<n-1; i++) {
+            //int k = pi[i];
+            while (k != -1 && s[k+1] != s[i]) k = pi[k];
+            if (s[k+1] == s[i]) {
+                k++;
             }
+            pi[i] = k;
         }
 
-        int i=-1, j=-1;
-        while (j < n-1) {
-            while (i != -1 && s[i+1] != rs[j+1]) i = pi[i];
-            if (s[i+1] == rs[j+1]) {
-                i++; j++;
-            } else {
-                j++;
-            }
+        k = -1;
+         for (int i=0; i < n; i++) {
+            while (k != -1 && s[k+1] != rs[i]) k = pi[k];
+            if (s[k+1] == rs[i]) {
+                k++;
+            } 
         }
 
-        string ans(rs, 0, n-i-1);
+        string ans(rs, 0, n-k-1);
         ans.append(s);
         return ans;
     }
